@@ -1,4 +1,8 @@
 FirstApp::Application.routes.draw do
+  get "say/hello"
+
+  get "say/goodbye"
+
   resources :microposts
 
   resources :users

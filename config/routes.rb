@@ -1,5 +1,15 @@
-FirstApp::Application.routes.draw do
-resources :users
+MyCookbook::Application.routes.draw do
+resources :users do
+    member do
+      get :following, :followers, :events, :retweeted_posts
+    end
+  end
+resources :sessions, only: [:new, :create, :destroy]
+resources :posts, only: [:new, :create, :destroy]
+resources :relationships, only: [:create, :destroy]
+resources :retweets, only: [:create, :destroy]
+
+
 
 
   #map.root :controller => 
@@ -11,13 +21,18 @@ resources :users
 
   get "static_pages/about"
 
+  get "static_pages/news"
 
 
+match '/new_event', to: 'posts#new'
 match '/signup', to: 'users#new'
+ match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 match '/help', to: 'static_pages#help'
 match '/about', to: 'static_pages#about'
 match '/contact', to: 'static_pages#contact'
 match '/home', to: 'static_pages#home'
+match '/news', to: 'static_pages#news'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

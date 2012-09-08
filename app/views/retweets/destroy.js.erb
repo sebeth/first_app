@@ -1,0 +1,2 @@
+$('#this_<%= @post.id %>').remove();
+$("#newspost_<%= @post.id %>").html("<%= escape_javascript(render :partial => '/shared/retweet',:locals => { :feed_item => @post }) %>")

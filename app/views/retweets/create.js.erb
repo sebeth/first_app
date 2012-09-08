@@ -1,0 +1,2 @@
+$("#post_<%= @post.id %>").html("<%= escape_javascript(render :partial => '/posts/undo_retweet',:locals => { :feed_item => @post }).html_safe %>")
+$("#newspost_<%= @post.id %>").html("<%= escape_javascript(render :partial => '/posts/undo_retweet',:locals => { :feed_item => @post }).html_safe %>")

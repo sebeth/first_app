@@ -1,7 +1,31 @@
 <% provide(:title, 'Home') %>
 <h1>Sample App</h1>
-<div class="center hero-unit">
-  <h1>Welcome to the Sample App</h1>
+
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/user_menu' %>
+      </section>
+      <section>
+        <%= render 'shared/post_form' %>
+      </section>
+    </aside>
+    <div class="span8">
+      <h3>Your recipies</h3>
+      <%= render 'posts/feed' %>
+    </div>
+  </div>  
+
+
+
+<% else %>
+            
+ <div class="center hero-unit">
+  <h1>Welcome to My Cookbook!</h1>
 
   <h2>
     This is the home page for the
@@ -10,6 +34,9 @@
   </h2>
 
   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+ </div>
+
+
 
 <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<% end %> 

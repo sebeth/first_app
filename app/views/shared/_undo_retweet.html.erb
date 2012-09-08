@@ -1,0 +1,7 @@
+<%= form_for(current_user.retweets.find_by_retweeted_post_id(feed_item), 
+         html: { method: :delete },
+             remote: true) do |f| %>
+  <%= f.submit "Remove from My Events", class: "btn btn-large" %>
+<% end %>
+
+

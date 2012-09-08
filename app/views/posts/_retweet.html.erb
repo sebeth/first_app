@@ -1,0 +1,4 @@
+<%= form_for(current_user.retweets.build(retweeted_post_id: feed_item.id), remote: true) do |f| %>
+          <div><%= f.hidden_field :retweeted_post_id %></div>
+         <%= f.submit "Add to My Events", class: "btn btn-large btn-primary" %>
+       <% end %>

@@ -12,6 +12,17 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
+
+.body_new_post{
+   margin-top: 25px;
+   width: 50%;
+  rows: 3;
+}
+
+#post_content{
+   height: 100px;
+}
+
 .debug_dump {
   clear: both;
   float: left;
@@ -118,17 +129,22 @@ footer ul li {
   margin-left: 10px;
 }
 aside {
+  .span3{
+  float:"right";
+  }
   section {
-    padding: 200px 0;
-    border-top: 100px solid $grayLighter;
+    padding: 20px 0;
+    border-top: 1px solid $grayLighter;
     &:first-child {
       border: 0;
       padding-top: 0;
+      
     }
     span {
       display: block;
-      margin-bottom: 300px;
+      margin-bottom: 10px;
       line-height: 1;
+
     }
     h1 {
       font-size: 1.6em;
@@ -143,6 +159,7 @@ aside {
 .gravatar {
   float: left;
   margin-right: 10px;
+  height: 52px;
 }
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
@@ -152,3 +169,104 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
   
 }
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+  border: none;
+  background: none;
+  padding: 50 px;
+}
+
+#errors_display {
+ color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  } 
+}
+
+
+div.field_with_errors {
+  background-color: white;
+  display: table;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+  }
+
+.posts {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.content {
+  display: block;
+}
+.timestamp {
+  color: $grayLight;
+}
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+
+
+
+
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+    width: 80%;
+  }
+
+  ul{
+  width: 80%;
+  }
+
+#profile{
+   .gravatar {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  height: 60px;
+}
+}
+
+  .gravatar {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  height: 40px;
+}
+}
+
+.users{
+.gravatar {
+  display: block;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  height: 50px;
+
+}
+margin-top: 20px;
+}
+
+
+  
+

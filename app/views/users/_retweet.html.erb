@@ -1,0 +1,8 @@
+
+ <span class="content"><%= feed_item.content %></span>
+  <div><%= f.hidden_field :retweeted_post_id %></div>
+  <%= f.submit "Follow", class: "btn btn-large btn-primary" %>
+<% end %>
+
+
+<%#= form_for(current_user.retweets.build(retweeted_post_id: @feed_item.id), remote: true) do |f| %>

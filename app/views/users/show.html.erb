@@ -1,11 +1,26 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span3">
     <section>
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
+       <%= render 'shared/user_menu' %>
     </section>
   </aside>
+  <div class="span7"> 
+<%# Add here possibility to send message %>
+<h1>
+  <%= @user.name %>
+</h1>
+<img>
+  <%= image_tag @user.photo.url %>
+</img>
+
+     <%= render 'follow_form' if signed_in? %>
+    <% if @user.posts.any? %>
+      <h3>Recipies (<%= @user.posts.count %>)</h3>
+      <ol class="posts">
+        <%= render @posts %>
+      </ol>
+      <%= will_paginate @posts %>
+    <% end %>
+  </div>
 </div>

@@ -1,0 +1,53 @@
+<% provide(:title, "Edit Meeting") %> 
+<h1>Edit Meeting Details</h1>
+
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@post, :html => { :multipart => true }) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :title, "Title (max. 60 chars)" %>
+      <%= f.text_field :title , :maxlength => "60" %>
+
+
+      <%= f.label :cathegory, "Cathegory" %>
+      <%= f.collection_select :cathegory, Post::CATHEGORIES, :to_s, :to_s, :include_blank => true %>
+ 
+      <%= f.label :tag_list, "Tags (separated by commas)" %>
+      <%= f.text_field :tag_list %>
+
+<%#= f.label :when, "When" %>
+ <%=f.label :date, "Date"%>
+<div class="datefield">
+<%= f.datepicker :date , :minDate => 0, dateFormat: "dd MM yy" %>
+</div>
+ <%=f.label :hour, "Time (hours,minutes)"%>
+<div class="timefield">
+<%= f.collection_select :hour , (0..23), :to_s, :to_s, :include_blank => true %>
+</div>
+<div class="timefieldlast">
+<%= f.collection_select :minute , (0..55).step(5), :to_s, :to_s, :include_blank => true %>
+</div>
+  <%#= f.datetime_select :when, :prompt => [ day: "Day", month: "Month", year: "Year", hour: "Hour",minute: "Minutes"], :order => [:day, :month, :year, :hour, :minute], 
+         :wrapper_html => {:id => "datefield" } %>
+
+       <div class="fieldafterlast">
+      <%=f.label :country, "Country"%>
+      </div>
+
+       <%=f.country_select :country, prompt: "Select country"%>
+
+       <%= f.label :city, "City" %>
+       <%= f.text_field :city, placeholder: "Specify city" %>
+
+      <%= f.label :content, "Meeting description" %>
+      <%= f.text_area :content %>
+
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
+

@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120826114257) do
+ActiveRecord::Schema.define(:version => 20121102114846) do
+
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.boolean  "sender_deleted",    :default => false
+    t.boolean  "recipient_deleted", :default => false
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "read_at"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -27,6 +39,13 @@ ActiveRecord::Schema.define(:version => 20120826114257) do
     t.string   "ingredients"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "country"
+    t.string   "city"
+    t.string   "title"
+    t.string   "cathegory"
+    t.date     "date"
+    t.integer  "hour"
+    t.integer  "minute"
   end
 
   add_index "posts", ["user_id", "created_at"], :name => "index_posts_on_user_id_and_created_at"
@@ -53,6 +72,23 @@ ActiveRecord::Schema.define(:version => 20120826114257) do
   add_index "retweets", ["retweeter_id", "retweeted_post_id"], :name => "index_retweets_on_retweeter_id_and_retweeted_post_id", :unique => true
   add_index "retweets", ["retweeter_id"], :name => "index_retweets_on_retweeter_id"
 
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -64,6 +100,11 @@ ActiveRecord::Schema.define(:version => 20120826114257) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "country"
+    t.string   "city"
+    t.text     "intersts"
+    t.text     "description"
+    t.integer  "age"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

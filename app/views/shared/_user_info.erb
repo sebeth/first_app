@@ -1,13 +1,15 @@
+<div class="user-info">
 <a href="<%= user_path(current_user) %>">
-  <%= image_tag current_user.photo.url(:side) %>
+  <%= image_tag current_user.photo.url(:thumb) %>
 </a>
-<h1>
+<h1 class="user-info-item">
   <%= current_user.name %>
 </h1>
-<span>
+<span class="user-info-item">
   <%= link_to "view my profile", current_user %>
 </span>
-<span>
-  <%= pluralize(current_user.posts.count, "post") %>
+<span class="user-info-item">
+  <%= pluralize(current_user.posts.count, "meeting") %>
 </span>
+</div>
 

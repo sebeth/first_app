@@ -1,0 +1,10 @@
+<%#= render  "messages/inbox" %>
+
+
+<%# form_tag delete_selected_user_messages_path(@user, :method => :post) do %>
+	<% if params[:mailbox] == "sent" %>
+			<%= render  "messages/sent" %>
+	<% else %>
+			<%= render  "messages/inbox" %>
+		<% end %>
+<%# end %>

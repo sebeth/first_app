@@ -2,7 +2,164 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 @import "bootstrap";
+
+.user{
+display:block;
+clear:left;
+float:left;
+
+margin-left:10px;}
+
+.user-info{padding-left:30px;
+padding-top: 20px;}
+
+.user-info-item{
+  padding-top:10px;
+}
+
+.nav-list:hover{color:#888888;}
+
+
+.nav-list{
+padding-left:30px;
+  color:#000000;
+  font-family: Verdana Arial;
+}
+
+.nav{
+padding-left:30px;
+  color:#000000;
+  font-family: Verdana Arial;
+}
+
+
+.user_menu{
+padding-left:30px;
+  color:#000000;
+  font-family: Verdana Arial;
+  font-size:120%;
+}
+
+body{
+  background-image: url('dust.png');
+  background-repeat: repeat;
+}
+
+
+.cat_top{padding:10px;
+horizontal-align:middle;
+text-align:center;
+font-family:jrhandRegular;
+font-size:130%;}
+
+
+.cat_below{
+  horizontal-align:middle;
+text-align:center;
+font-family:Verdana;
+font-size:120%;
+}
+
+.cat_city{
+  horizontal-align:middle;
+text-align:center;
+font-family:Verdana;
+font-size:120%;
+font-style:bold;
+}
+
+
+
+.cat_date{
+  horizontal-align:middle;
+text-align:center;
+font-family:Verdana;
+margin-bottom:20px;
+padding:10px
+}
+
+
+.tags {
+    font-family: Helvetica, Arial, sans-serif;
+    background: #FFC95D;
+    display: inline-block;
+    color: #fff;
+    position: relative;
+    padding-top: 3px;
+    padding-left: 5px;
+    padding-right:7px;
+    padding-bottom: 6px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin: 10px 7px 0px 10px;
+    text-decoration: none;
+    height:10px;
+    color:#996633;
+    border-top:1px solid #ECB14B;
+    border-bottom:1px solid #ECB14B;
+    border-right:1px solid #ECB14B;
+    
+
+text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+
+    background: #fec151;
+    background: -moz-linear-gradient(top, rgba(254, 217, 112, 1) 0%, rgba(254, 188, 74, 1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254, 217, 112, 1)), color-stop(100%,rgba(254, 188, 74, 1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(254, 217, 112, 1) 0%,rgba(254, 188, 74, 1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(254, 217, 112, 1) 0%,rgba(254, 188, 74, 1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(254, 217, 112, 1) 0%,rgba(254, 188, 74, 1) 100%); /* IE10+ */
+    background: linear-gradient(top, rgba(254, 217, 112, 1) 0%,rgba(254, 188, 74, 1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+    
+
+}
+ 
+
+
+.tags:after {
+    background: #fff;
+    width: 5px;
+    height: 5px;
+    content: "";
+    display: inline-block;
+    border-radius: 3px;
+    margin-right:5px;
+    margin-top:3px;
+float:left;
+margin-left:-5px;
+
+}
+ 
+
+.tags:hover{text-decoration:none;color:#996633;}
+.tags:visited{color:#996633;text-decoration:none;}
+
+
+.tags:before {
+
+
+   content:"";
+  float:left;
+  position:absolute;
+  top:0;
+  left:-11px;
+  width:0;
+  height:2px;
+  border-color:transparent #FFC95D transparent transparent;
+  border-style:solid;
+  border-width:9px 11px 9px 0; 
+  vertical-align: middle; 
+}
+
+
+ 
+.tags:hover:after {
+    border-color: transparent transparent transparent #739fe4;
+}
+
+
 
 $grayMediumLight: #eaeaea;
 
@@ -12,11 +169,84 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
+.navbar-inner{
+  background-color:#ffffff;
+  background-image:none;
+}
+
+#site_logo{margin: 0 50px 10px 18px;}
 
 .body_new_post{
    margin-top: 25px;
    width: 50%;
   rows: 3;
+}
+
+.datefield {
+   width:130px;
+   margin-left: 100 px;
+  
+}
+
+.timefield {
+   float:left;
+   width:60px;
+   margin-left: 20 px;
+ 
+  
+  
+}
+
+.part-of-feed {
+    
+   border-bottom:#E1E1E1 1px solid;
+    border-top:#E1E1E1 1px solid;
+    border-left:#E1E1E1 1px solid;
+    border-right:#E1E1E1 1px solid;
+          background-color:#FEFEFE;
+    margin-bottom: 10px;
+overflow:hidden;
+
+border-radius: 10px;
+
+//background-image: url('cream_dust.png');
+  //background-repeat: repeat;
+
+       
+  padding: 10px 10px 10px 10px;
+  box-shadow: 2px 2px 1px #ADADAD;
+
+-moz-box-shadow: 5px 5px 3px #ADADAD;
+
+    
+
+    span {
+    border: no;
+      display: block;
+      margin-bottom: 10px;
+      line-height: 1;
+
+    }
+}
+
+
+.btn-mini{margin-bottom:5px;size:50%;}
+
+.timefieldlast {
+   float:left;
+   width:60px;
+   margin: 20 px;
+  }
+
+.fieldafterlast{
+  display:block;
+  width:50px;
+   margin-left: 15 px;
+}
+
+
+.datetime{
+  display:inline;
 }
 
 #post_content{
@@ -36,7 +266,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 20px;
 }
 
 section {
@@ -54,6 +284,8 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
+
+h1{margin-top: 15px;}
 
 /* typography */
 
@@ -75,6 +307,7 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: #999;
+  margin-top: 30px;
 }
 
 p {
@@ -100,6 +333,24 @@ p {
   color: #fff;
   text-decoration: none;
 }
+
+
+#site_FB{
+  float:right;
+  margin:10px;
+  width:50px
+}
+
+
+#site_TW{
+  float:right;
+  margin:10px;
+  width:50px
+}
+
+  
+
+
 footer {
   margin-top: 45px;
   padding-top: 5px;
@@ -124,22 +375,43 @@ footer ul {
   list-style: none;
 }
 
+.retweet_button{
+  margin-bottom:-20px;
+  margin-top:-7px;
+}
+
+.feed_of_posts{padding-left:20px;}
+
+
+
 footer ul li {
   float: left;
   margin-left: 10px;
+  
 }
-aside {
-  .span3{
+.side-menu, aside {
+  
+
+
+  .nav-list{width: 70%;}
+  
+
+  .span2{
   float:"right";
+ 
   }
   section {
+    border-style:solid;
+    border-width: 1px;
+    border-color:#E1E1E1;
+          background-color:#FEFEFE;
+    margin-bottom: 2px;
+       
     padding: 20px 0;
-    border-top: 1px solid $grayLighter;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-      
-    }
+box-shadow: 3px 3px 2px #ADADAD;
+-moz-box-shadow: 3px 3px 2px #ADADAD;
+
+    
     span {
       display: block;
       margin-bottom: 10px;
@@ -208,11 +480,94 @@ div.field_with_errors {
 
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    //border-top: 1px solid #e8e8e8;
   }
 }
+
+
+.feedbottom{ margin-left:20px; width: 90%;margin-top:5px;}
+.feedbottomelement{float:left; margin-right:10px;
+margin-left:15px;
+vertical-align:middle;}
+
+.feed-picture{float:middle; max-width: 75px;
+horizontal-align:middle;display:block; margin-left:auto; margin-right:auto;}
+
+
+.allcontent
+{
+position:relative;
+float: left;
+  display:block;
+  margin-top: 5px;
+  padding-left: 4px;
+  padding-right: 4px;
+  height: 80%;
+width: 70%;
+
+
+
+}
+
+
+.bg_of_post{background-image: url('cream_dust.png');
+  background-repeat: repeat;}
+
+
+.title{padding-top:10px;
+padding-bottom:10px;
+color:#333333;
+font-family:Verdana;
+font-style:bold;
+font-size:130%;
+text-align:middle;
+horizontal-align:middle;
+}
+
+.rightside11
+
+{
+text-align:middle;
+horizontal-align:middle;}
+
+.rightsidecontent
+
+{
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+
+text-align:middle;
+horizontal-align:middle;
+margin-left: 0px;
+padding-top: 8px;
+padding-left: 3px;
+margin-top: 10px;
+position:relative;
+float: left;
+margin-bottom:15px;
+
+background-image: url('cream_dust.png');
+  background-repeat: repeat;
+ 
+  
+width: 25%;
+  word-wrap: break-word;
+
+}
+
+.event-description{font-family: Verdana;
+font-size:120%; font-leading:1.5em;}
+
 .content {
-  display: block;
+line-height: 1.5;
+position:relative;
+float: left;
+  display:block;
+  width:95%;
+  margin-left: 15px;
+  word-wrap: break-word;padding-right:5px;
+  
+
 }
 .timestamp {
   color: $grayLight;
@@ -234,9 +589,7 @@ aside {
     width: 80%;
   }
 
-  ul{
-  width: 80%;
-  }
+  
 
 #profile{
    .gravatar {

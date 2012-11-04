@@ -1,0 +1,36 @@
+<h2>Sent</h2>
+<table>
+	<tr>
+		<th>Del?</th>
+		<th>Subject</th>
+		<th>To</th>
+		<th>Sent</th>
+	</tr>
+	<% if @messages.size == 0 %>
+		<tr>
+			<td colspan="4">
+				No messages
+			</td>
+		</tr>
+	<% else %>
+		<%= form_tag delete_selected_messages_path do %>
+		<% @messages.each do |message| %>
+			<tr>
+				<td><%= check_box_tag "delete_ids[]", message.id %></td>
+				<td><%= link_to h(message.subject), user_message_path(@user, message) %></td>
+  			 
+  			  <td> <%if !message.recipient.nil?%>
+  			  	<%= link_to h(message.recipient.name), 
+  			  user_path(message.recipient) %><% end%> </td>
+			  <td><%=link_to h(message.created_at.to_s(:long)), user_message_path(@user, message)%></td>
+			</tr>
+		<% end %>
+		<tr>
+			<td colspan="4">
+				<%= submit_tag "Delete" %>
+			</td>
+		</tr>
+ 	<% end %>
+ 	<% end %>
+</table>
+<%= link_to "Inbox", user_messages_path(@user)%>

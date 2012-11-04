@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
+    @country=Carmen::Country.coded(@user.country)
   end
 
 
@@ -44,7 +45,7 @@ def events
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to your Cookbook!"
-      redirect_to @user
+      redirect_to edit_user_path(@user)
     else
       render 'new'
     end
@@ -52,6 +53,10 @@ def events
   
   def edit
   end
+
+  #def edit_password
+   # render 'edit_password'
+  #end
 
   def update
     if @user.update_attributes(params[:user])

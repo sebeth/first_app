@@ -2,7 +2,7 @@
 <div id="postfeed_<%= @post.id %>">
 <% if @news_items.any? %>
   <ol class="posts">
-    <%= render partial: 'posts/news_item', collection: @news_items %>
+    <%= render partial: 'posts/feed_item', collection: @news_items %>
   </ol>
   <%= will_paginate @news_items %>
 <% end %>

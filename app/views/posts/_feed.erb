@@ -1,8 +1,8 @@
-<div id="postfeed_<%= @post.id %>">
+<div >
 <% if @feed_items.any? %>
-  <ol class="posts">
+  <div class="posts">
     <%= render partial: 'posts/feed_item', collection: @feed_items %>
-  </ol>
+  </div>
   <%= will_paginate @feed_items %>
 <% end %>
 </div>

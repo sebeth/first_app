@@ -1,24 +1,86 @@
-<li id="this_<%= feed_item.id %>">
-  <%= link_to gravatar_for(feed_item.user), feed_item.user %>
-    <span class="user">
+
+<div id="this_<%= feed_item.id %>", class="part-of-feed", style="overflow:hidden;position:relative;z-index:1;padding-right:10px">
+ 
+   
+  <div> 
+   <div class="allcontent">
+    <% if !(feed_item.title.nil?)%>
+    <span><h4 class="content title"><%= feed_item.title %></h4></span>
+    <% end %>
+    
+    
+     <span class="content event-description", style="line-height:120%"><%= feed_item.content[0..200] %>...<%= link_to "Read more", post_path(feed_item) %></span></span>
+
+     <span class="user content">
+      <% if !(feed_item.tag_list.empty?)%>
+      <%= raw feed_item.tag_list.map { |t| link_to t, tag_path(t), :class => "tags" }.join('') %>
+      <%end%>
+   </span>    
+        
+  </div>
+
+<div class="rightsidecontent">
+  <% if !(feed_item.cathegory.nil?)%>
+    <span class="cat_date"><%= feed_item.cathegory %></span>
+    <% end %>
+
+<a class="feed-picture", style="horizontal-align:center;" href="<%= user_path(feed_item.user) %>">
+  <%= image_tag feed_item.user.photo.url(:thumb) %>
+   </a>
+
+<span class=" cat_top">
       <%= link_to feed_item.user.name, feed_item.user %>
     </span>
-    <span class="content"><%= feed_item.content %></span>
-    <span class="timestamp">
-      Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
-    </span>
-  <% if current_user?(feed_item.user) %>
-    <%= link_to "delete", feed_item, method: :delete,
+
+    <% if !(feed_item.country.nil?)%>
+    <% @country= Carmen::Country.coded(feed_item.country)%>
+    <span ><%#= @country.name %></span>
+    <% end %>
+    <% if !(feed_item.city.nil?)%>
+    <span class="cat_city"><%= feed_item.city %></span>
+    <% end %>
+    <% if !(feed_item.date.nil?)%>
+    <span class="cat_date" ><%= feed_item.date.strftime("%d %b %Y") %></span>
+    <% end %>
+     <% if !(feed_item.hour.nil? or feed_item.minute.nil?)%>
+    <span><%#= feed_item.hour %><%#= feed_item.minute %></span>
+    <% end %>
+</div>
+</div>
+<div style="clear:both"></div>
+
+
+
+    <div >
+        <div class="timestamp feedbottomelement">
+         Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+    </div>
+    <% if current_user?(feed_item.user) %>
+         <div class="feedbottomelement"><%= link_to "Edit Meeting", edit_post_path(feed_item) %></div>
+         <div class="feedbottomelement"> <%= link_to "Delete Meeting", feed_item, method: :delete,
                                      data: { confirm: "Are you sure?" },
                                      title: feed_item.content %>
-                                     <% end %>
-   <% unless current_user?(feed_item.user) %> 
-     <div id="post_<%= feed_item.id %>">                                 
+                                   </div>  <% end %>
+    <% unless current_user?(feed_item.user) %> 
+    <div class="feedbottomelement"> <%= link_to "Send Message", new_user_message_path(current_user, :rec => feed_item.user.id ) %> </div>
+   <%#= form_for (@message, :url => new_user_message_path(current_user), 
+               :recipient_id => feed_item.user.id, 
+               :html => { :multipart => true }) do |f| %>
+  <%#= form_for(@message, 
+  :url => new_user_message_path(current_user), 
+  :recipient_id => feed_item.user.id , 
+  :html => { :multipart => true }) do |f| %>
+        <%#= f.hidden_field :recipient_id %>
+         <%#= f.submit "Send Message", class: "btn btn-large btn-primary" %>
+       <%# end %>
+
+     <div id="post_<%= feed_item.id %>" , class="feedbottomelement retweet_button">                                 
       <% if current_user.retweeted?(feed_item) %>
-         <%= render 'posts/undo_retweet', :feed_item => feed_item %> 
+        <%= render 'posts/undo_retweet', :feed_item => feed_item %> 
       <% else %>
-       <%= render 'posts/retweet', :feed_item => feed_item %>
+         <%= render 'posts/retweet', :feed_item => feed_item %>
       <% end %>
     </div>
   <% end %>
-</li>
+</div>
+</div>

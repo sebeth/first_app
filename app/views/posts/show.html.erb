@@ -1,0 +1,17 @@
+<% provide(:title, "View event") %> 
+<h1>Event Information</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+  	<span class="content">Posted by: <%= @user.name %></span>
+  <span class="content"><%= @post.content %></span>
+  
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(@post.created_at) %> ago.
+  </span>
+  <span class="timestamp">
+    Modified <%= time_ago_in_words(@post.updated_at) %> ago.
+  </span>
+    
+</div>
+</div>

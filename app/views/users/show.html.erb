@@ -11,16 +11,47 @@
   <%= @user.name %>
 </h1>
 <img>
-  <%= image_tag @user.photo.url %>
+  <%= image_tag @user.photo.url(:profile) %>
 </img>
 
-     <%= render 'follow_form' if signed_in? %>
-    <% if @user.posts.any? %>
-      <h3>Recipies (<%= @user.posts.count %>)</h3>
-      <ol class="posts">
-        <%= render @posts %>
-      </ol>
-      <%= will_paginate @posts %>
-    <% end %>
+<% if !@user.age.nil? %>
+<p>
+  Age: <%=@user.age %>
+</p>
+<%end %>
+
+<% if !@user.country.empty? %>
+<p>
+  Country: 
+  <%=@country.name %>
+</p>
+<%end %>
+
+<% if !@user.city.empty? %>
+<p>
+  City: <%=@user.city %>
+</p>
+<%end %>
+
+<% if !@user.intersts.empty? %>
+<p>
+  Interests: <%=strip_tags(@user.intersts) %>
+</p>
+<%end %>
+
+<% if !@user.description.empty? %>
+<p>
+  About: <%=strip_tags(@user.description) %>
+</p>
+<%end %>
+
+     <%#= render 'follow_form' if signed_in? %>
+   <%# <% if @user.posts.any? %>
+     <%# <h3>Recipies (<%= @user.posts.count %>   <%# )</h3>
+      <%#<ol class="posts">
+        <%#= @user.sent_messages %>
+      <%#</ol>
+      <%#= will_paginate @posts %>
+    <%# end %>
   </div>
 </div>

@@ -7,7 +7,14 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem "paperclip", "~> 3.0"
-#gem "rmagick", "2.13.1", :require => 'RMagick'
+gem "carmen-rails"
+gem "rmagick", "2.13.1", :require => 'RMagick'
+gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
+gem "simple_form"
+gem 'jquery-rails'
+gem 'jquery_datepicker'
+gem 'meta_search'
+gem "acts-as-taggable-on", "~> 2.3.1"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -15,6 +22,7 @@ group :development do
    gem 'sqlite3', '1.3.5'
    gem 'rspec-rails', '2.10.0'
    gem 'annotate', '~> 2.4.1.beta'
+   gem 'bootswatch-rails'
 end
 
 # Gems used only for assets and not required
@@ -22,6 +30,7 @@ end
 group :assets do
   gem 'sass-rails',   '3.2.4'
   gem 'coffee-rails', '3.2.2'
+  gem 'jquery-ui-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platform => :ruby

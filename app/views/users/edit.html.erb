@@ -12,19 +12,31 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.hidden_field :password, value: @user.password %>
+       <%= f.hidden_field :password_confirmation, value: @user.password %>
 
-      <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.password_field :password_confirmation %>
+       <%= f.label :photo, "Your photo" %>
+       <%= f.file_field :photo , placeholder: "Upload your photo"%>
 
-       <%= f.label :photo, "Upload your photo" %>
-       <%= f.file_field :photo %>
+       <%=f.label :age, "Your age" %>
+       <%=f.select :age, (14..99), prompt: "Select your age" %>
+
+       <%=f.label :country, "Your country"%>
+       <%=f.country_select :country, prompt: "Select your country"%>
+
+       <%= f.label :city, "Your city" %>
+       <%= f.text_field :city, placeholder: "Specify your city" %>
+
+       <%= f.label :interests, "Your interests" %>
+       <%= f.text_area :intersts, placeholder: "Tell about your interests" %>
+
+       <%= f.label :descriptions, "Something else?" %>
+       <%= f.text_area :description, placeholder: "What else others should know about you?" %> 
+
 
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
 
-    <%= gravatar_for @user %>
-    <a href="http://gravatar.com/emails">change</a>
+  
   </div>
 </div>

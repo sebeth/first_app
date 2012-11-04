@@ -10,7 +10,8 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation, :photo
+  attr_accessible :name, :email, :password, :password_confirmation, :photo,
+                  :age, :country, :city, :intersts, :description
   has_secure_password
   has_many :posts, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -21,16 +22,21 @@ class User < ActiveRecord::Base
                                    class_name:  "Relationship",
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
-
+  has_private_messages
   has_attached_file :photo,
+                   :default_url => "/images/:attachment/:style.png",
+                   :default_path => ":rails_root/public/images/:attachment/:style.png",
                   :url => "/images/:attachment/:id_:style.:extension",
                   :path => ":rails_root/public/images/:attachment/:id_:style.:extension",
-                  :styles => lambda { |a|
-                                        { :thumb => "100x100#" }},
-                       :whiny => false
+                  :styles => { :thumb => "75x75#", 
+                                :profile => "200x200>"},
+                  :convert_options => { 
+                                      :profile => "-gravity center -extent 200x200"}
+                  
 
 
-  validates_attachment_content_type :photo, :content_type => ["image/jpeg", "image/png"]
+  validates_attachment_content_type :photo, :content_type => ["image/jpeg", "image/jpg", "image/png"]
+  validates_attachment_size :photo, :less_than => 5.megabytes
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
@@ -40,13 +46,15 @@ class User < ActiveRecord::Base
   validates :email, presence:   true,
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
+  validates :password, presence: {:on => :create }, length: { minimum: 6 , :on => :create}
+  validates :password_confirmation, presence: {:on => :create }
 
   def news
     # This is preliminary. See "Following users" for the full implementation.
     Post.from_users_news(self)
   end
+
+  
 
 def feed_old
     # This is preliminary. See "Following users" for the full implementation.

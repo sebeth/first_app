@@ -1,0 +1,23 @@
+<%= form_for(@message, :url => user_messages_path(@user), :recipient => @message.recipient , :html => { :multipart => true }) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.hidden_field :to, :value => params[:rec] %>
+      <%#= f.hidden_field :recipient_id, :value => @message.recipient.id %>
+  <p>
+    You are sending message to: <%= @message.recipient.name %> <br />
+		<%#= error_message_on @message, :to %>
+  </p>
+
+  <p>
+    Subject:<br />
+    <%= f.text_field :subject %>
+    <%#= error_message_on @message, :subject %>
+    </p>
+    <p>
+      Message<br />
+      <%= f.text_area :body %>
+			<%#= error_message_on @message, :body %>
+    </p>
+    <p>
+      <%= submit_tag "Send" %>
+    </p>
+<% end %>

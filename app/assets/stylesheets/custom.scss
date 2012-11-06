@@ -5,6 +5,8 @@
 
 @import "bootstrap";
 
+.container{width:100%;}
+
 .user{
 display:block;
 clear:left;
@@ -318,7 +320,7 @@ p {
 /* header */
 
 
-.header-menu{float:right;}
+.header-menu{float:left;}
 
 #logo {
   float: left;

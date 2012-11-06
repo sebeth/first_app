@@ -5,11 +5,11 @@
      
         <ul class="nav pull-right">
           
-          <li style="float:right;" ><%= link_to "My Meetings", home_path %></li>
-          <li style="float:right;"><%= link_to "Help", root_path %></li>
+          <li ><%= link_to "My Meetings", home_path %></li>
+          <li ><%= link_to "Help", root_path %></li>
           <% if signed_in? %>
-            <li style="float:right;"><%= link_to "Users", '#' %></li>
-            <li id="fat-menu" class="dropdown" style="float:right;">
+            <li ><%= link_to "Users", '#' %></li>
+            <li id="fat-menu" class="dropdown" >
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
               </a>
@@ -24,7 +24,7 @@
               </ul>
             </li>
           <% else %>
-            <li style="float:right;"><%= link_to "Sign in", signin_path %></li>
+            <li ><%= link_to "Sign in", signin_path %></li>
           <% end %>
        
         </ul>

@@ -1,11 +1,11 @@
 <header class="navbar navbar">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "Let's go out", root_path, id: "logo" %>
+      
       <nav>
-        <ul class="nav pull-right">
+        <ul class="nav">
           
-          <li><%= link_to "Home", home_path %></li>
+          <li><%= link_to "My Meetings", home_path %></li>
           <li><%= link_to "Help", root_path %></li>
           <% if signed_in? %>
             <li><%= link_to "Users", '#' %></li>

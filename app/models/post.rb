@@ -1,12 +1,28 @@
 class Post < ActiveRecord::Base
   attr_accessible :content, :ingredients, :name, :user_id,
-          :country, :city, :title, :cathegory, :date, :hour, :minute, :tag_list
+          :country, :city, :title, :cathegory, :date, :hour, :minute, :tag_list, 
+          :location, :m_photo
   acts_as_taggable
   belongs_to :user 
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 5000 }
   has_many :retweets, foreign_key: "retweeted_post_id", dependent: :destroy
   has_many :retweeters, through: :retweets, source: :retweeter
+
+  has_attached_file :m_photo,
+                   :default_url => "/images/:attachment/m_:style.png",
+                   :default_path => ":rails_root/public/images/:attachment/m_:style.png",
+                  :url => "/images/:attachment/m_:id_:style.:extension",
+                  :path => ":rails_root/public/images/:attachment/m_:id_:style.:extension",
+                  :styles => { :thumb => "75x75#", 
+                                :profile => "200x200>"},
+                  :convert_options => { 
+                                      :profile => "-gravity center -extent 200x200"}
+                  
+
+
+  validates_attachment_content_type :m_photo, :content_type => ["image/jpeg", "image/jpg", "image/png"]
+  validates_attachment_size :m_photo, :less_than => 5.megabytes
 
 
    default_scope order: 'posts.created_at DESC'

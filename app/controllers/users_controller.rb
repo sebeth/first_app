@@ -7,6 +7,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
     @country=Carmen::Country.coded(@user.country)
+    @count=0
+     @messages = current_user.received_messages
+     @messages.each do |message|
+      if !message.message_read? 
+          @count=@count+1
+       end
+     end
   end
 
 
@@ -43,6 +50,7 @@ def events
  def create
     @user = User.new(params[:user])
     if @user.save
+      UserMailer.registration_confirmation(@user).deliver
       sign_in @user
       redirect_to edit_user_path(@user)
     else

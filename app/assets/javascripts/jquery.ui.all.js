@@ -5983,6 +5983,9 @@ $.datepicker._lastInput = input;
 $.datepicker._setDateFromField(inst);
 if ($.datepicker._inDialog) // hide cursor
 input.value = '';
+
+
+
 if (!$.datepicker._pos) { // position below input
 $.datepicker._pos = $.datepicker._findPos(input);
 $.datepicker._pos[1] += input.offsetHeight; // add the height

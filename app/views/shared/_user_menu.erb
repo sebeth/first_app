@@ -1,8 +1,11 @@
-    <ul class="nav nav-list user_menu">
+    <ul class="nav nav-list user_menu", id="user-menu">
     <li class="nav-header", style="font-size:120%">Menu</li>
     <li><%= link_to "My Profile", current_user %></li>
     <li><%= link_to "Create Meeting", new_event_path %></li>
     <li><%= link_to "News", news_path %></li>
-    <li><a href="#">My Mailbox</a></li>
+    <li><%= link_to "My Meetings", root_path %></li>
+    <li><%= link_to "My Mailbox (#{@count})", messages_path %></li>
+    <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+    <li><%= link_to "Update Password", edit_password_path  %></li>
     </ul>
 

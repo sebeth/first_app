@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121102114846) do
+ActiveRecord::Schema.define(:version => 20121205211200) do
 
   create_table "messages", :force => true do |t|
     t.integer  "sender_id"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(:version => 20121102114846) do
     t.integer  "user_id"
     t.string   "name"
     t.string   "ingredients"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.string   "country"
     t.string   "city"
     t.string   "title"
@@ -46,6 +46,11 @@ ActiveRecord::Schema.define(:version => 20121102114846) do
     t.date     "date"
     t.integer  "hour"
     t.integer  "minute"
+    t.string   "m_photo_file_name"
+    t.string   "m_photo_content_type"
+    t.integer  "m_photo_file_size"
+    t.datetime "m_photo_updated_at"
+    t.text     "location"
   end
 
   add_index "posts", ["user_id", "created_at"], :name => "index_posts_on_user_id_and_created_at"

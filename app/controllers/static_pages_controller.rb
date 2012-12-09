@@ -3,6 +3,13 @@ class StaticPagesController < ApplicationController
     if signed_in?
      @post = current_user.posts.build
      @feed_items = current_user.feed.paginate(page: params[:page])
+     @count=0
+     @messages = current_user.received_messages
+     @messages.each do |message|
+      if !message.message_read? 
+          @count=@count+1
+       end
+     end
   end
   end
 
@@ -21,6 +28,16 @@ class StaticPagesController < ApplicationController
 
   def news
     if signed_in?
+
+@count=0
+     @messages = current_user.received_messages
+     @messages.each do |message|
+      if !message.message_read? 
+          @count=@count+1
+       end
+     end
+
+      
      @post = current_user.posts.build
 
 if params[:search]
@@ -36,6 +53,7 @@ else
   end   
     # @feed_items = current_user.news.paginate(page: params[:page])
   end
+
  end
 
 end

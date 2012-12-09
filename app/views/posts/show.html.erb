@@ -1,6 +1,14 @@
 <% provide(:title, "View event") %> 
 <h1>Event Information</h1>
 
+<aside class="span3">
+    <section>
+       <img style="margin-left:10px">
+          <%= image_tag @post.m_photo.url(:profile) %>
+       </img>
+    </section>
+  </aside>
+
 <div class="row">
   <div class="span6 offset3">
   	<span class="content">Posted by: <%= @user.name %></span>

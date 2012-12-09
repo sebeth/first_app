@@ -3,13 +3,13 @@
  
    
   <div> 
-   <div class="allcontent">
+   <div class="allcontent ">
     <% if !(feed_item.title.nil?)%>
-    <span><h4 class="content title"><%= feed_item.title %></h4></span>
+    <span><h4 class="content title" id="event-title"><%=link_to feed_item.title, post_path(feed_item) %></h4></span>
     <% end %>
     
     
-     <span class="content event-description", style="line-height:120%"><%= feed_item.content[0..200] %>...<%= link_to "Read more", post_path(feed_item) %></span></span>
+     <span class="content event-description", style="line-height:120%" id="event-content"><%= feed_item.content[0..200] %>...<%= link_to "Read more", post_path(feed_item) %></span></span>
 
      <span class="user content">
       <% if !(feed_item.tag_list.empty?)%>
@@ -28,7 +28,7 @@
   <%= image_tag feed_item.user.photo.url(:thumb) %>
    </a>
 
-<span class=" cat_top">
+<span class=" cat_top" id="event-user-name">
       <%= link_to feed_item.user.name, feed_item.user %>
     </span>
 
@@ -56,13 +56,13 @@
          Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
     </div>
     <% if current_user?(feed_item.user) %>
-         <div class="feedbottomelement"><%= link_to "Edit Meeting", edit_post_path(feed_item) %></div>
-         <div class="feedbottomelement"> <%= link_to "Delete Meeting", feed_item, method: :delete,
+         <div class="feedbottomelement" id="feedbottomelement"><%= link_to "Edit Meeting", edit_post_path(feed_item) %></div>
+         <div class="feedbottomelement" id="feedbottomelement"> <%= link_to "Delete Meeting", feed_item, method: :delete,
                                      data: { confirm: "Are you sure?" },
                                      title: feed_item.content %>
                                    </div>  <% end %>
     <% unless current_user?(feed_item.user) %> 
-    <div class="feedbottomelement"> <%= link_to "Send Message", new_user_message_path(current_user, :rec => feed_item.user.id ) %> </div>
+    <div class="feedbottomelement" id="feedbottomelement"> <%= link_to "Send Message", new_user_message_path(current_user, :rec => feed_item.user.id ) %> </div>
    <%#= form_for (@message, :url => new_user_message_path(current_user), 
                :recipient_id => feed_item.user.id, 
                :html => { :multipart => true }) do |f| %>

@@ -41,8 +41,14 @@
        <%= f.label :city, "City" %>
        <%= f.text_field :city, placeholder: "Specify city" %>
 
+        <%= f.label :m_photo, "Meeting picture" %>
+       <%= f.file_field :m_photo , placeholder: "Upload picture of meeting"%>
+
       <%= f.label :content, "Meeting description" %>
       <%= f.text_area :content %>
+
+       <%= f.label :location, "Location/address of meeting" %>
+      <%= f.text_area :location %>
 
 
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>

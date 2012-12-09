@@ -7,6 +7,8 @@
 
 .container{width:100%;}
 
+
+
 .user{
 display:block;
 clear:left;
@@ -14,33 +16,94 @@ float:left;
 
 margin-left:10px;}
 
-.user-info{padding-left:30px;
+  .top-left{ 
+
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+.user-info{
+
+padding-left:30px;
 padding-top: 20px;}
+
 
 .user-info-item{
   padding-top:10px;
 }
 
-.nav-list:hover{color:#888888;}
+.nav-list:hover{color:#000000;}
+
+#event-title :hover{
+  background-color:#FFFFFF;
+  color:#333333;
+  text-decoration:none;
+}
+
+#event-content :hover{
+  background-color:#FFFFFF;
+  color:#333333;
+  text-decoration:none;
+}
+
+#event-user-name :hover{
+  background-color:#FFFFFF;
+  color:#000000;
+  text-decoration:none;
+}
+
+#feedbottomelement :hover{
+  background-color:#FFFFFF;
+  color:#333333;
+  text-decoration:none;
+}
 
 
 .nav-list{
 padding-left:30px;
-  color:#000000;
-  font-family: Verdana Arial;
+ 
+  font-family: Helvetica, Arial;
 }
+
+.navbar-inner{
+  background-color:#EEEEEE;
+}
+
+#user-menu > li > a{
+  color:#444444;
+}
+
+.navbar .nav > li > a{
+font-size:110%;
+  color:#555555;
+}
+
+.nav-list .nav > li > a{
+font-size:120%;
+  color:#555555;
+}
+
+.navbar .nav > li > a:hover{
+  color:#000000;
+}
+
 
 .nav{
 padding-left:30px;
-  color:#000000;
-  font-family: Verdana Arial;
+  color:#555555 !important;
+  font-family: Helvetica, Arial;
 }
 
+.nav-header{
+  margin-bottom: 10px;
+}
 
 .user_menu{
+margin-top:10px;
+margin-bottom:10px;
 padding-left:30px;
   color:#000000;
-  font-family: Verdana Arial;
+  font-family: Verdana, Arial;
   font-size:120%;
 }
 
@@ -135,7 +198,7 @@ margin-left:-5px;
 }
  
 
-.tags:hover{text-decoration:none;color:#996633;}
+.tags:hover{text-decoration:none;color:#6E4C2A;}
 .tags:visited{color:#996633;text-decoration:none;}
 
 
@@ -493,7 +556,7 @@ div.field_with_errors {
 
 
 .feedbottom{ margin-left:20px; width: 90%;margin-top:5px;}
-.feedbottomelement{float:left; margin-right:10px;
+.feedbottomelement{float:left; margin-right:5px;
 margin-left:15px;
 vertical-align:middle;}
 
@@ -576,6 +639,12 @@ float: left;
   
 
 }
+
+h4 .content .title >a :hover{
+    background-color:none;
+    text-decoration:none;
+}
+
 .timestamp {
   color: $grayLight;
 }
